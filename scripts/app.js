@@ -164,7 +164,7 @@ function renderThirdChartAnnotations(d, x, y, margin) {
     const annotations = [
         {
             note: {
-                label: "An average worker makes " + Math.round(d.productivity) + " $/hour",
+                label: "Life Expectancy is " + Math.round(d.productivity) + " years",
                 lineType: "none",
                 bgPadding: {"top": 15, "left": 10, "right": 10, "bottom": 10},
                 title: d.entity,
@@ -308,7 +308,7 @@ async function renderThirdChart() {
     const margin = {top: 10, right: 20, bottom: 30, left: 50},
         width = 800 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
-    const data = await d3.csv("https://mqc88.github.io/data/4-labor-productivity-per-hour-PennWorldTable.csv");
+    const data = await d3.csv("https://mqc88.github.io/data/life-expectancy.csv");
     // append the svg object to the body of the page
     const svg = d3.select("#chart-3")
         .append("svg")
@@ -349,10 +349,10 @@ async function renderThirdChart() {
         .call(d3.axisBottom(x).tickFormat(d3.format("d")));
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([0, 100])
+        .domain([30, 90])
         .range([height, 0]);
     svg.append("g")
-        .call(d3.axisLeft(y).tickFormat(d => d + " $/hr"));
+        .call(d3.axisLeft(y).tickFormat(d => d + " years"));
 
     // Initialize line with group a
     const firstCountryData = filteredData.filter(function (d) {
