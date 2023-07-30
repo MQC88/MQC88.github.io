@@ -4,7 +4,7 @@ async function renderFirstChart() {
         width = 1000 - margin.left - margin.right,
         height = 800 - margin.top - margin.bottom;
     const data = await d3.csv("https://mqc88.github.io/data/life-expectancy-vs-gdp-per-capita.csv");
-    const year = 2020
+    const year = 2015
     const filteredData = data.filter(function (d) {
         return d.year == year && d.total_population != "" && d.average_annual_hours_worked != "" && d.gdp_per_capita != "";
     });
@@ -29,7 +29,7 @@ async function renderFirstChart() {
         .domain([50, 90])
         .range([height, 0]);
     svg.append("g")
-        .call(d3.axisLeft(y).tickFormat(d => d + " hr"));
+        .call(d3.axisLeft(y).tickFormat(d => d + " years"));
 
     // Add a scale for bubble size
     const z = getBubbleSizeScale()
