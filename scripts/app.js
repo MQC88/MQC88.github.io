@@ -26,7 +26,7 @@ async function renderFirstChart() {
 
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([50, 90])
+        .domain([45, 90])
         .range([height, 0]);
     svg.append("g")
         .call(d3.axisLeft(y).tickFormat(d => d + " years"));
@@ -191,7 +191,7 @@ function renderThirdChartAnnotations(d, x, y, margin) {
 }
 
 function firstChartTooltipHTML(object) {
-    return "<div>" + object.entity + "</div><div>$" + Math.round(object.gdp_per_capita) + "/year</div><div>" + Math.round(object.average_annual_hours_worked) + " life expectancy</div>";
+    return "<div>" + object.entity + "</div><div>$" + Math.round(object.gdp_per_capita) + "/year</div><div>" + "</div><div>life expectancy: " + Math.round(object.average_annual_hours_worked) + " </div>";
 }
 
 function countryCodesToAnnotate() {
@@ -218,7 +218,7 @@ async function renderSecondChart() {
 
     // Add X axis
     const x = d3.scaleLinear()
-        .domain([50, 90])
+        .domain([45, 90])
         .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -226,7 +226,7 @@ async function renderSecondChart() {
 
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([50, 90])
+        .domain([45, 90])
         .range([height, 0]);
     svg.append("g")
         .call(d3.axisLeft(y).tickFormat(d => d + " years"));
@@ -299,7 +299,7 @@ async function renderSecondChart() {
 }
 
 function secondChartTooltipHTML(object) {
-    return "<div>" + object.entity + "</div><div>$" + Math.round(object.productivity) + "\/ for men</div><div>" + Math.round(object.average_annual_hours_worked) + " for women</div>";
+    return "<div>" + object.entity + "</div><div>" + Math.round(object.productivity) + "\/ for men</div><div>" + Math.round(object.average_annual_hours_worked) + " for women</div>";
 }
 
 
@@ -342,14 +342,14 @@ async function renderThirdChart() {
 
     // Add X axis to measure time
     const x = d3.scaleLinear()
-        .domain([1950, 2017])
+        .domain([1930, 2020])
         .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).tickFormat(d3.format("d")));
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([30, 90])
+        .domain([20, 95])
         .range([height, 0]);
     svg.append("g")
         .call(d3.axisLeft(y).tickFormat(d => d + " years"));
