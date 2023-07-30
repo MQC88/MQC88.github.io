@@ -103,7 +103,7 @@ function renderFirstChartAnnotations(d, x, y, margin) {
     const annotations = [
         {
             note: {
-                label: "$" + Math.round(d.gdp_per_capita) + "/year, " + Math.round(d.average_annual_hours_worked) + " hrs/yr",
+                label: "$" + Math.round(d.gdp_per_capita) + "/year, " + Math.round(d.average_annual_hours_worked) + " years",
                 lineType: "none",
                 bgPadding: {"top": 15, "left": 10, "right": 10, "bottom": 10},
                 title: d.entity,
