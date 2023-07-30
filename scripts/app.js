@@ -3,7 +3,7 @@ async function renderFirstChart() {
     const margin = {top: 10, right: 20, bottom: 30, left: 50},
         width = 1000 - margin.left - margin.right,
         height = 800 - margin.top - margin.bottom;
-    const data = await d3.csv("https://mqc88.github.io/data/life-expectancy-vs-gdp-per-ca.csv");
+    const data = await d3.csv("https://mqc88.github.io/data/life-expectancy-vs-gdp-per-capita.csv");
     const year = 2015
     const filteredData = data.filter(function (d) {
         return d.year == year && d.total_population != "" && d.average_annual_hours_worked != "" && d.gdp_per_capita != "";
@@ -203,7 +203,7 @@ async function renderSecondChart() {
     const margin = {top: 10, right: 20, bottom: 30, left: 50},
         width = 1000 - margin.left - margin.right,
         height = 800 - margin.top - margin.bottom;
-    const data = await d3.csv("https://rohitmukherjee.github.io/data/3-productivity-vs-annual-hours-worked.csv");
+    const data = await d3.csv("https://mqc88.github.io/data/3-productivity-vs-annual-hours-worked.csv");
     const year = 2015
     const filteredData = data.filter(function (d) {
         return d.year == year && d.total_population != "" && d.average_annual_hours_worked != "" && d.productivity != "";
@@ -308,7 +308,7 @@ async function renderThirdChart() {
     const margin = {top: 10, right: 20, bottom: 30, left: 50},
         width = 800 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
-    const data = await d3.csv("https://rohitmukherjee.github.io/data/4-labor-productivity-per-hour-PennWorldTable.csv");
+    const data = await d3.csv("https://mqc88.github.io/data/4-labor-productivity-per-hour-PennWorldTable.csv");
     // append the svg object to the body of the page
     const svg = d3.select("#chart-3")
         .append("svg")
@@ -452,7 +452,7 @@ function renderFourthChart() {
 // Load external data and boot
     Promise.all([
         d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-        d3.csv("https://rohitmukherjee.github.io/data/1-annual-working-hours-vs-gdp-per-capita-pwt.csv", function (d) {
+        d3.csv("https://mqc88.github.io/data/1-annual-working-hours-vs-gdp-per-capita-pwt.csv", function (d) {
             if (d.year == 2015) {
                 data.set(d.code,
                     {
