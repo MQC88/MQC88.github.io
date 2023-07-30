@@ -18,7 +18,7 @@ async function renderFirstChart() {
 
     // Add X axis
     const x = d3.scaleLinear()
-        .domain([0, 100000])
+        .domain([0, 90000])
         .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -26,7 +26,7 @@ async function renderFirstChart() {
 
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([40, 100])
+        .domain([50, 90])
         .range([height, 0]);
     svg.append("g")
         .call(d3.axisLeft(y).tickFormat(d => d + " hr"));
@@ -195,7 +195,7 @@ function firstChartTooltipHTML(object) {
 }
 
 function countryCodesToAnnotate() {
-    return ["MMR", "FRA", "USA"]
+    return []
 }
 
 // Second Slide
