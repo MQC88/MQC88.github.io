@@ -4,7 +4,7 @@ async function renderFirstChart() {
         width = 1000 - margin.left - margin.right,
         height = 800 - margin.top - margin.bottom;
     const data = await d3.csv("https://mqc88.github.io/data/life-expectancy-vs-gdp-per-capita.csv");
-    const year = 2015
+    const year = 2020
     const filteredData = data.filter(function (d) {
         return d.year == year && d.total_population != "" && d.average_annual_hours_worked != "" && d.gdp_per_capita != "";
     });
@@ -203,7 +203,7 @@ async function renderSecondChart() {
     const margin = {top: 10, right: 20, bottom: 30, left: 50},
         width = 1000 - margin.left - margin.right,
         height = 800 - margin.top - margin.bottom;
-    const data = await d3.csv("https://mqc88.github.io/data/3-productivity-vs-annual-hours-worked.csv");
+    const data = await d3.csv("https://mqc88.github.io/data/life-expectancy-of-men-vs-life-expectancy-of-women.csv");
     const year = 2015
     const filteredData = data.filter(function (d) {
         return d.year == year && d.total_population != "" && d.average_annual_hours_worked != "" && d.productivity != "";
@@ -218,18 +218,18 @@ async function renderSecondChart() {
 
     // Add X axis
     const x = d3.scaleLinear()
-        .domain([0, 100])
+        .domain([50, 90])
         .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickFormat(d => d + " $/hr"));
+        .call(d3.axisBottom(x).tickFormat(d => d + " years"));
 
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([1200, 2800])
+        .domain([50, 90])
         .range([height, 0]);
     svg.append("g")
-        .call(d3.axisLeft(y).tickFormat(d => d + " hr"));
+        .call(d3.axisLeft(y).tickFormat(d => d + " years"));
     const z = getBubbleSizeScale();
 
     // Add a scale for bubble color
