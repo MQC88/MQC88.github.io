@@ -3,7 +3,7 @@ async function renderFirstChart() {
     const margin = {top: 10, right: 20, bottom: 30, left: 50},
         width = 1000 - margin.left - margin.right,
         height = 800 - margin.top - margin.bottom;
-    const data = await d3.csv("https://rohitmukherjee.github.io/data/1-annual-working-hours-vs-gdp-per-capita-pwt.csv");
+    const data = await d3.csv("https://github.com/MQC88/MQC88.github.io/blob/main/data/life-expectancy-vs-gdp-per-capita.csv");
     const year = 2015
     const filteredData = data.filter(function (d) {
         return d.year == year && d.total_population != "" && d.average_annual_hours_worked != "" && d.gdp_per_capita != "";
