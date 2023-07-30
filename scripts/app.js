@@ -134,7 +134,7 @@ function renderSecondChartAnnotations(d, x, y, margin) {
     const annotations = [
         {
             note: {
-                label: Math.round(d.productivity) + " $/hour, " + Math.round(d.average_annual_hours_worked) + " hrs/yr",
+                label: Math.round(d.productivity) + " for Men, " + Math.round(d.average_annual_hours_worked) + " for Women",
                 lineType: "none",
                 bgPadding: {"top": 15, "left": 10, "right": 10, "bottom": 10},
                 title: d.entity,
@@ -191,7 +191,7 @@ function renderThirdChartAnnotations(d, x, y, margin) {
 }
 
 function firstChartTooltipHTML(object) {
-    return "<div>" + object.entity + "</div><div>$" + Math.round(object.gdp_per_capita) + "/year</div><div>" + Math.round(object.average_annual_hours_worked) + " hrs worked yearly</div>";
+    return "<div>" + object.entity + "</div><div>$" + Math.round(object.gdp_per_capita) + "/year</div><div>" + Math.round(object.average_annual_hours_worked) + " life expectancy</div>";
 }
 
 function countryCodesToAnnotate() {
@@ -299,7 +299,7 @@ async function renderSecondChart() {
 }
 
 function secondChartTooltipHTML(object) {
-    return "<div>" + object.entity + "</div><div>$" + Math.round(object.productivity) + "\/hour</div><div>" + Math.round(object.average_annual_hours_worked) + " hrs worked yearly</div>";
+    return "<div>" + object.entity + "</div><div>$" + Math.round(object.productivity) + "\/ for men</div><div>" + Math.round(object.average_annual_hours_worked) + " for women</div>";
 }
 
 
