@@ -191,7 +191,7 @@ function renderThirdChartAnnotations(d, x, y, margin) {
 }
 
 function firstChartTooltipHTML(object) {
-    return "<div>" + object.entity + "</div><div>$" + Math.round(object.gdp_per_capita) + "/year</div><div>" + Math.round(object.average_annual_hours_worked) + " hrs worked yearly</div>";
+    return "<div>" + object.entity + "</div><div>$" + Math.round(object.gdp_per_capita) + "/year</div><div>" + Math.round(object.life_expectancy) + " hrs worked yearly</div>";
 }
 
 function countryCodesToAnnotate() {
