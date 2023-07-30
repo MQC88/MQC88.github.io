@@ -6,7 +6,7 @@ async function renderFirstChart() {
     const data = await d3.csv("https://github.com/MQC88/MQC88.github.io/blob/main/data/life-expectancy-vs-gdp-per-capita.csv");
     const year = 2015
     const filteredData = data.filter(function (d) {
-        return d.year == year && d.total_population != "" && d.average_annual_hours_worked != "" && d.gdp_per_capita != "";
+        return d.year == year && d.total_population != "" && d.life_expectancy != "" && d.gdp_per_capita != "";
     });
 
     let svg = d3.select("#chart-1").append("svg")
@@ -62,7 +62,7 @@ async function renderFirstChart() {
             return x(Number(d.gdp_per_capita));
         })
         .attr("cy", function (d) {
-            return y(Number(d.average_annual_hours_worked));
+            return y(Number(d.life_expectancy));
         })
         .attr("id", function (d) {
             return "bubble-" + d.code;
@@ -91,7 +91,7 @@ async function renderFirstChart() {
         for (let i = 0; i < filteredData.length; i++) {
             if (filteredData[i].code === countryCode) {
                 const countryData = filteredData[i];
-                renderFirstChartAnnotations(countryData, x(Number(countryData.gdp_per_capita)), y(Number(countryData.average_annual_hours_worked)), margin);
+                renderFirstChartAnnotations(countryData, x(Number(countryData.gdp_per_capita)), y(Number(countryData.life_expectancy)), margin);
             }
         }
     })
@@ -103,7 +103,7 @@ function renderFirstChartAnnotations(d, x, y, margin) {
     const annotations = [
         {
             note: {
-                label: "$" + Math.round(d.gdp_per_capita) + "/year, " + Math.round(d.average_annual_hours_worked) + " hrs/yr",
+                label: "$" + Math.round(d.gdp_per_capita) + "/year, " + Math.round(d.life_expectancy) + " hrs/yr",
                 lineType: "none",
                 bgPadding: {"top": 15, "left": 10, "right": 10, "bottom": 10},
                 title: d.entity,
