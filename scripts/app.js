@@ -18,7 +18,7 @@ async function renderFirstChart() {
 
     // Add X axis
     const x = d3.scaleLinear()
-        .domain([50, 100])
+        .domain([1000, 70000])
         .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
@@ -26,7 +26,7 @@ async function renderFirstChart() {
 
     // Add Y axis
     const y = d3.scaleLinear()
-        .domain([1200, 2800])
+        .domain([40, 100])
         .range([height, 0]);
     svg.append("g")
         .call(d3.axisLeft(y).tickFormat(d => d + " hr"));
