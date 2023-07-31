@@ -191,7 +191,7 @@ function renderThirdChartAnnotations(d, x, y, margin) {
 }
 
 function firstChartTooltipHTML(object) {
-    return "<div>" + object.entity + "</div><div>$" + Math.round(object.gdp_per_capita) + "/year</div><div>" + "</div><div>life expectancy: " + Math.round(object.average_annual_hours_worked) + " </div>";
+    return "<div>" + object.entity + "</div><div>GDP per capita:$" + Math.round(object.gdp_per_capita) + "/year</div><div>" + "</div><div>life expectancy: " + Math.round(object.average_annual_hours_worked) + " </div>";
 }
 
 function countryCodesToAnnotate() {
@@ -299,7 +299,7 @@ async function renderSecondChart() {
 }
 
 function secondChartTooltipHTML(object) {
-    return "<div>" + object.entity + "</div><div>" + Math.round(object.productivity) + "\/ for men</div><div>" + Math.round(object.average_annual_hours_worked) + " for women</div>";
+    return "<div>" + object.entity + "</div><div>" + Math.round(object.productivity) + " for men</div><div>" + Math.round(object.average_annual_hours_worked) + " for women</div>";
 }
 
 
