@@ -342,7 +342,7 @@ async function renderThirdChart() {
 
     // Add X axis to measure time
     const x = d3.scaleLinear()
-        .domain([1930, 2020])
+        .domain([1800, 2020])
         .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
