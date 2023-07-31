@@ -452,12 +452,12 @@ function renderFourthChart() {
 // Load external data and boot
     Promise.all([
         d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"),
-        d3.csv("https://mqc88.github.io/data/1-annual-working-hours-vs-gdp-per-capita-pwt.csv", function (d) {
+        d3.csv("https://mqc88.github.io/data/life-expectancy-vs-gdp-per-capita.csv", function (d) {
             if (d.year == 2015) {
                 data.set(d.code,
                     {
                         year: d.year,
-                        gdp_per_capita: Number(d.gdp_per_capita),
+                        gdp_per_capita: Number(d.average_annual_hours_worked),
                         name: d.entity,
                         population: d.total_population,
                         continent: d.continent
@@ -504,7 +504,7 @@ function renderFourthChart() {
 }
 
 function fourthChartTooltipHTML(object) {
-    return "<div>" + object.name + "</div><div>" + object.population + " people</div><div>$" + Math.round(object.gdp_per_capita) + "/year</div>";
+    return "<div>" + object.name + "</div><div>Life Expectancy: " + Math.round(object.gdp_per_capita)  + "</div><div>Total Population: " + object.population + "</div>";
 }
 
 // Common functions
